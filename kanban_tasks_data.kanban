@@ -1,0 +1,139 @@
+{
+	"categories": [
+		{
+			"uuid": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"title": "Task",
+			"color": "9645ff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "18a87558-a404-47de-965c-e95ae8cbcb81",
+			"title": "Todo",
+			"tasks": [
+				"14fd33aa-7664-46dc-828c-f1a86af6822e",
+				"f00cea9a-6197-4b45-96c0-302c7bd062cb",
+				"bb15fdad-a87a-4146-b77f-19eabe9871ce",
+				"86962f14-952e-4c3f-b2c9-e208fb7a40f2",
+				"c1fb9033-410e-48eb-a8f6-ee8795ec6b26",
+				"b8ab673c-d570-403b-aa12-0f54ca61a9b0",
+				"69b1d05e-af0f-49a4-a0c9-14d1aa8ab8b8",
+				"a5422b51-515a-4f2a-b823-54167f9f648b",
+				"0ea57117-5c8b-4b48-9082-5d9254071c85",
+				"ab317865-911f-4134-81e5-b68619afa0ad",
+				"ef47e377-7400-48e0-99c1-a752be687c48"
+			]
+		},
+		{
+			"uuid": "da9d95ef-da9d-4172-9c7b-7f4f70f1a98b",
+			"title": "Doing",
+			"tasks": [
+				"e01110df-49f0-409f-95b4-f05260aa87b3"
+			]
+		},
+		{
+			"uuid": "567c68c5-b11b-4624-8e10-2fbb24db5ef1",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "e01110df-49f0-409f-95b4-f05260aa87b3",
+			"title": "Player Movement",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "14fd33aa-7664-46dc-828c-f1a86af6822e",
+			"title": "GUN",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "f00cea9a-6197-4b45-96c0-302c7bd062cb",
+			"title": "Collectable Materials",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "bb15fdad-a87a-4146-b77f-19eabe9871ce",
+			"title": "Inventory",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "86962f14-952e-4c3f-b2c9-e208fb7a40f2",
+			"title": "Upgrade Shop",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "c1fb9033-410e-48eb-a8f6-ee8795ec6b26",
+			"title": "Fixable turrets",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "b8ab673c-d570-403b-aa12-0f54ca61a9b0",
+			"title": "CHEWING GUM",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "69b1d05e-af0f-49a4-a0c9-14d1aa8ab8b8",
+			"title": "Environment",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "a5422b51-515a-4f2a-b823-54167f9f648b",
+			"title": "Parkour",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "0ea57117-5c8b-4b48-9082-5d9254071c85",
+			"title": "Boss",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "ab317865-911f-4134-81e5-b68619afa0ad",
+			"title": "Boss phases",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "ef47e377-7400-48e0-99c1-a752be687c48",
+			"title": "Boss attacks",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"18a87558-a404-47de-965c-e95ae8cbcb81"
+			],
+			[
+				"da9d95ef-da9d-4172-9c7b-7f4f70f1a98b"
+			],
+			[
+				"567c68c5-b11b-4624-8e10-2fbb24db5ef1"
+			]
+		]
+	}
+}
