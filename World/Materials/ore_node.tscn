@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://yvycojpjtwuj"]
+
+[ext_resource type="Script" path="res://Ore Node.gd" id="1_qo5om"]
+[ext_resource type="PackedScene" uid="uid://cs0gx5towyxp6" path="res://World/Materials/healthbar.tscn" id="2_xpxlp"]
+[ext_resource type="AudioStream" uid="uid://cj8y4bmgh04k6" path="res://Audio/rock hit.wav" id="3_icw5n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2fai7"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2gwby"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywywm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0kg1"]
+material = SubResource("StandardMaterial3D_ywywm")
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpdok"]
+albedo_color = Color(0.576471, 0.576471, 0.576471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xswju"]
+material = SubResource("StandardMaterial3D_bpdok")
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dtkj4"]
+radius = 0.702421
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d613m"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Ore Node" type="Node3D"]
+script = ExtResource("1_qo5om")
+
+[node name="Ore Mesh" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ore Mesh"]
+transform = Transform3D(0.89637, 0, 0.443306, 0, 1, 0, -0.443306, 0, 0.89637, 0, 0.158075, 0)
+mesh = SubResource("BoxMesh_2fai7")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Ore Mesh"]
+transform = Transform3D(0.995631, 0, 0.0933785, 0, 1, 0, -0.0933785, 0, 0.995631, 0.116834, 0, -0.369281)
+mesh = SubResource("BoxMesh_2gwby")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Ore Mesh"]
+transform = Transform3D(0.834271, 0, -0.551355, 0, 1, 0, 0.551355, 0, 0.834271, -0.424758, 0, -0.0510194)
+mesh = SubResource("BoxMesh_2gwby")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ore Mesh"]
+transform = Transform3D(0.929931, 0, -0.367735, 0, 1, 0, 0.367735, 0, 0.929931, -0.282393, 0.242949, -0.401223)
+mesh = SubResource("BoxMesh_d0kg1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Ore Mesh"]
+transform = Transform3D(0.793888, -0.582939, 0.172985, 0.451005, 0.755313, 0.475496, -0.407843, -0.299473, 0.862542, -0.360038, 0.569425, -0.38884)
+mesh = SubResource("BoxMesh_xswju")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Ore Mesh"]
+transform = Transform3D(0.735791, -0.605361, 0.303561, -0.362157, 0.0270306, 0.931725, -0.572236, -0.795492, -0.199347, 0.0484088, 0.316683, -0.250079)
+mesh = SubResource("BoxMesh_xswju")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Ore Mesh"]
+transform = Transform3D(0.609842, -0.512799, -0.60426, 0.770924, 0.207051, 0.602333, -0.183763, -0.833167, 0.521598, -0.112175, 0.316683, 0.227765)
+mesh = SubResource("BoxMesh_xswju")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Ore Mesh"]
+transform = Transform3D(0.0455305, -0.537279, -0.842175, 0.998946, 0.0293997, 0.0352499, 0.0058206, -0.842892, 0.538052, -0.340098, 0.0715194, -0.80563)
+mesh = SubResource("BoxMesh_xswju")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.156544, 0.199093, -0.282775)
+shape = SubResource("SphereShape3D_dtkj4")
+
+[node name="Healthbar Sprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.188507, 1, -0.248173)
+visible = false
+billboard = 1
+texture = SubResource("ViewportTexture_d613m")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="Healthbar" parent="SubViewport" instance=ExtResource("2_xpxlp")]
+
+[node name="Regen Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Hit Sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_icw5n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.156544, 0.199093, -0.282775)
+shape = SubResource("SphereShape3D_dtkj4")
