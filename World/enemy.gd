@@ -17,11 +17,11 @@ func _ready():
 	healthbar.init_health(hp)
 	healthbar_sprite.visible = false
 
-func hit(_type):
+func hit(_type, _damage):
 	if (_type == "enemy" or _type == "material"):
 		if healthbar_sprite.visible == false: healthbar_sprite.visible = true
-		hp -= 1
-		mesh.scale = Vector3(0.7, 0.7, 0.7)
+		hp -= _damage
+		mesh.scale = Vector3(0.7, 1, 0.7)
 		healthbar.health = hp
 
 func destroy():

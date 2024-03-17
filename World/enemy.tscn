@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw6s8pr63c0k5"]
+[gd_scene load_steps=8 format=3 uid="uid://cw6s8pr63c0k5"]
 
 [ext_resource type="Script" path="res://World/enemy.gd" id="1_rlsoj"]
 [ext_resource type="Material" uid="uid://b7kt6bkw6sjfm" path="res://normal.tres" id="2_wcwp7"]
@@ -12,10 +12,15 @@ material = ExtResource("2_wcwp7")
 [sub_resource type="ViewportTexture" id="ViewportTexture_qxv66"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frjtj"]
+bg_color = Color(1, 0.215686, 0.305882, 1)
+
 [node name="Enemy" type="Node3D"]
 script = ExtResource("1_rlsoj")
 
 [node name="Enemy" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
 shape = SubResource("CapsuleShape3D_i7k7q")
@@ -24,7 +29,7 @@ shape = SubResource("CapsuleShape3D_i7k7q")
 mesh = SubResource("CapsuleMesh_ppj7o")
 
 [node name="Healthbar Sprite" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.188507, 1, -0.248173)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
 visible = false
 billboard = 1
 texture = SubResource("ViewportTexture_qxv66")
@@ -34,3 +39,11 @@ disable_3d = true
 transparent_bg = true
 
 [node name="Healthbar" parent="SubViewport" instance=ExtResource("3_o6ium")]
+theme_override_styles/fill = SubResource("StyleBoxFlat_frjtj")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_i7k7q")

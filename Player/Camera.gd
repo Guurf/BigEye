@@ -15,8 +15,9 @@ func get_camera_collision():
 	var intersection = get_world_3d().direct_space_state.intersect_ray(new_intersection)
 	
 	if not intersection.is_empty():
-		print(intersection.collider.name)
-		intersection.collider.get_parent().hit("enemy")
+		print(intersection.collider.collision_layer)
+		if intersection.collider.collision_layer == 16:
+			intersection.collider.get_parent().hit("enemy", 1)
 	else:
 		print("Nothing")
 

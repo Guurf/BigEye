@@ -14,7 +14,7 @@ var pitch
 func _ready():
 	max_hp = 10
 	hp = max_hp
-	pitch = randi_range(max_hp+1, max_hp+3)
+	pitch = randi_range(max_hp, max_hp+3)
 	healthbar.init_health(hp)
 	healthbar_sprite.visible = false
 
@@ -25,12 +25,12 @@ func _process(delta):
 	else: mesh.scale = lerp(mesh.scale, Vector3(scale_to, scale_to, scale_to), 0.1)
 	if regen_timer.time_left <= 0.0: _ready()
 
-func hit(_type):
+func hit(_type, _damage):
 	if _type == "material":
 		hit_sound.pitch_scale = pitch
 		hit_sound.play()
 		if healthbar_sprite.visible == false: healthbar_sprite.visible = true
-		hp -= 1
+		hp -= _damage
 		pitch -= 1
 		healthbar.health = hp
 		mesh.scale = Vector3(0.7, 0.7, 0.7)

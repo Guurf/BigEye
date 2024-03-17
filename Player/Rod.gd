@@ -90,4 +90,4 @@ func mining():
 
 func _on_rod_area_area_entered(area):
 	var target = area.get_parent()
-	target.hit()
+	target.hit("material", 2)
