@@ -6,7 +6,7 @@ var scale_to = 1
 var pitch
 @onready var area_3d = $Area3D
 @onready var healthbar = $SubViewport/Healthbar
-@onready var mesh = $"Ore Mesh"
+@onready var mesh = $MeshInstance3D
 @onready var regen_timer = $"Regen Timer"
 @onready var healthbar_sprite = $"Healthbar Sprite"
 @onready var hit_sound = $"Hit Sound"

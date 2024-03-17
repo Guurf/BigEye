@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://yvycojpjtwuj"]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://Ore Node.gd" id="1_qo5om"]
-[ext_resource type="PackedScene" uid="uid://cs0gx5towyxp6" path="res://World/Materials/healthbar.tscn" id="2_xpxlp"]
+[ext_resource type="PackedScene" uid="uid://cs0gx5towyxp6" path="res://World/healthbar.tscn" id="2_xpxlp"]
 [ext_resource type="AudioStream" uid="uid://cj8y4bmgh04k6" path="res://Audio/rock hit.wav" id="3_icw5n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2fai7"]

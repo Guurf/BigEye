@@ -1,7 +1,7 @@
 extends Node3D
 @onready var healthbar_sprite = $"Healthbar Sprite"
 @onready var healthbar = $SubViewport/Healthbar
-@onready var mesh = $Enemy/MeshInstance3D
+@onready var mesh = $MeshInstance3D
 
 var hp
 var max_hp
