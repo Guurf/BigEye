@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5mjqk73nnjpd"]
+
+[ext_resource type="Script" path="res://Player/Tracer.gd" id="1_nb2dk"]
+
+[node name="Bullet Trail" type="MeshInstance3D"]
+sorting_offset = 99.0
+script = ExtResource("1_nb2dk")

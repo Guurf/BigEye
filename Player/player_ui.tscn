@@ -1,0 +1,180 @@
+[gd_scene load_steps=11 format=3 uid="uid://pwqp3c86n4bd"]
+
+[ext_resource type="Script" path="res://Player/player_ui.gd" id="1_wjnxu"]
+[ext_resource type="Script" path="res://Player/Staminabar.gd" id="3_5tdrg"]
+[ext_resource type="Texture2D" uid="uid://ce46nfacqkfad" path="res://Player/crosshair.png" id="4_pqrvt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3024"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaoia"]
+bg_color = Color(1, 0.321569, 0.321569, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="GDScript" id="GDScript_mtcyu"]
+script/source = "extends ProgressBar
+
+@onready var timer = $Timer
+@onready var damagebar = $Damagebar
+var health = 0 : set = _set_health
+var damagebar_goto = health
+
+func _set_health(new_health):
+	var prev_health = health
+	health = min(max_value, new_health)
+	value = health
+	
+	if health <= 0:
+		health == 0
+	
+	if health < prev_health:
+		timer.start()
+	else:
+		damagebar.value = health
+
+func init_health(_health):
+	health = _health
+	damagebar_goto = _health
+	max_value = _health
+	value = _health
+	damagebar.max_value = _health
+	damagebar.value = _health
+
+func _process(delta):
+	if damagebar.value != damagebar_goto:
+		damagebar.value = lerpf(damagebar.value, damagebar_goto, 0.05)
+
+func _on_timer_timeout():
+	damagebar_goto = health-0.1
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2aitv"]
+bg_color = Color(0.113725, 0.113725, 0.113725, 0.372549)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1bhu"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5sq4"]
+bg_color = Color(0.290196, 0.788235, 0.321569, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkkvf"]
+
+[node name="Player UI" type="CanvasLayer"]
+script = ExtResource("1_wjnxu")
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -157.0
+offset_right = 480.0
+offset_bottom = -110.0
+grow_vertical = 0
+rotation = -0.0872665
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_e3024")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uaoia")
+value = 50.0
+show_percentage = false
+script = SubResource("GDScript_mtcyu")
+
+[node name="Damagebar" type="ProgressBar" parent="Healthbar"]
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_2aitv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e1bhu")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="Healthbar"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Staminabar" type="ProgressBar" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 85.0
+offset_top = -102.0
+offset_right = 422.0
+offset_bottom = -82.0
+grow_vertical = 0
+rotation = -0.0872665
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_e3024")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b5sq4")
+value = 50.0
+show_percentage = false
+script = ExtResource("3_5tdrg")
+
+[node name="Damagebar" type="ProgressBar" parent="Staminabar"]
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_2aitv")
+theme_override_styles/fill = SubResource("StyleBoxEmpty_bkkvf")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="Staminabar"]
+wait_time = 0.3
+one_shot = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.99994
+offset_top = -7.99994
+offset_right = 32.0001
+offset_bottom = 32.0001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_pqrvt")
+
+[connection signal="timeout" from="Healthbar/Timer" to="Healthbar" method="_on_timer_timeout" flags=18]
+[connection signal="timeout" from="Staminabar/Timer" to="Staminabar" method="_on_timer_timeout" flags=18]

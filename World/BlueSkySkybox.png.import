@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb0dxvu8ycupo"
-path.s3tc="res://.godot/imported/BlueSkySkybox.png-b9e072e9d99b0a507d988d31cc8623ec.s3tc.ctex"
+path="res://.godot/imported/BlueSkySkybox.png-b9e072e9d99b0a507d988d31cc8623ec.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://World/BlueSkySkybox.png"
-dest_files=["res://.godot/imported/BlueSkySkybox.png-b9e072e9d99b0a507d988d31cc8623ec.s3tc.ctex"]
+dest_files=["res://.godot/imported/BlueSkySkybox.png-b9e072e9d99b0a507d988d31cc8623ec.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

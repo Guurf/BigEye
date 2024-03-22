@@ -8,7 +8,13 @@ extends Node3D
 @onready var cooldown = $"rod cooldown"
 @onready var drill_speed = $drill_speed
 @onready var rod_area = $"../Head/Camera3D/Rod Area"
+@onready var rod_area_attack = $"../Head/Camera3D/Rod Area Attack"
+@onready var drill_sound = $"../Drill Sound"
+@onready var node_priority = $"../Head/Camera3D/Node Priority"
 
+var rod_damage = 2
+
+var target_node = null
 func _ready():
 	animation_tree.active = true
 
@@ -32,6 +38,9 @@ func update_animation_parameters():
 			if animation_tree["parameters/conditions/plummeting"] == true:
 				animation_tree["parameters/conditions/plummeting"] = false
 				animation_tree["parameters/conditions/smash"] = true
+				player.stam -= 10
+				player.player_ui.staminabar._set_stamina(player.stam)
+				player.stamina_regen.start()
 			if (player.speed == player.SPRINT_SPEED):
 				animation_tree["parameters/conditions/is_running"] = true
 				animation_tree["parameters/conditions/idle"] = false
@@ -81,13 +90,18 @@ func wait(seconds: float) -> void:
 func mining():
 	if animation_tree["parameters/conditions/is_drilling"] == true:
 		if drill_speed.is_stopped(): drill_speed.start()
-		if drill_speed.time_left >= drill_speed.wait_time-0.1: rod_area.monitoring = true
+		if drill_speed.time_left >= drill_speed.wait_time-0.05: rod_area.monitoring = true
 		else: rod_area.monitoring = false
 	elif drill_speed.time_left <= 0.1:
 		rod_area.monitoring = false
 		drill_speed.stop()
-
+	rod_area_attack.monitoring = rod_area.monitoring
 
 func _on_rod_area_area_entered(area):
 	var target = area.get_parent()
-	target.hit("material", 2)
+	target.hit("material", rod_damage)
+
+
+func _on_rod_area_attack_area_entered(area):
+	var target = area.get_parent()
+	target.hit("enemy", rod_damage)

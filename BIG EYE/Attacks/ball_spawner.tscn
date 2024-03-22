@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://e3hkdnd25ytr"]
+
+[ext_resource type="Script" path="res://Ball Spawner.gd" id="1_7tppy"]
+
+[node name="Ball Spawner" type="Node3D"]
+script = ExtResource("1_7tppy")

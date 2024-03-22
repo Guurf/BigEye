@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbkbgxbf7ewap"
+path="res://.godot/imported/cog rod drill loop.wav-60aa6b46ffe7d089cb0d8b4dd650c47c.sample"
+
+[deps]
+
+source_file="res://Audio/cog rod drill loop.wav"
+dest_files=["res://.godot/imported/cog rod drill loop.wav-60aa6b46ffe7d089cb0d8b4dd650c47c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

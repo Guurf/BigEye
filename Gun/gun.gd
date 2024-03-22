@@ -5,7 +5,6 @@ extends Node3D
 @onready var animation_tree = $pistol/AnimationTree
 @onready var player = $".."
 @onready var cooldown = $"gun cooldown"
-@onready var camera_3d = $"../Head/Camera3D"
 
 func _ready():
 	animation_tree.active = true
@@ -41,5 +40,6 @@ func update_animation_parameters():
 	
 	if (Input.is_action_pressed("reload")):
 		animation_tree["parameters/conditions/reload"] = true
+		player.ammo = player.clip_size
 	else:
 		animation_tree["parameters/conditions/reload"] = false

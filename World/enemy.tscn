@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bibgp06cgtaws"]
+[gd_scene load_steps=7 format=3 uid="uid://bibgp06cgtaws"]
 
 [ext_resource type="Script" path="res://World/enemy.gd" id="1_rlsoj"]
 [ext_resource type="PackedScene" uid="uid://cs0gx5towyxp6" path="res://World/healthbar.tscn" id="2_q6mtm"]
@@ -8,22 +8,19 @@ radius = 0.4
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_811b3"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5oljt"]
+bg_color = Color(1, 0.25098, 0.25098, 1)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_24ns2"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Enemy" type="Node3D"]
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 16
 script = ExtResource("1_rlsoj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_wdm72")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 16
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_811b3")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
@@ -38,8 +35,13 @@ disable_3d = true
 transparent_bg = true
 
 [node name="Healthbar" parent="SubViewport" instance=ExtResource("2_q6mtm")]
+theme_override_styles/fill = SubResource("StyleBoxFlat_5oljt")
 
 [node name="Healthbar Sprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_24ns2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_811b3")

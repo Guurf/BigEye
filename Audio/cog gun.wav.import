@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfo7l020qhfjk"
+path="res://.godot/imported/cog gun.wav-0ea34fd58c447f623e1ffdff9ef58680.sample"
+
+[deps]
+
+source_file="res://Audio/cog gun.wav"
+dest_files=["res://.godot/imported/cog gun.wav-0ea34fd58c447f623e1ffdff9ef58680.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
