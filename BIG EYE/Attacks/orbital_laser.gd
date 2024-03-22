@@ -63,4 +63,4 @@ func _on_spread_area_area_entered(area):
 
 
 func _on_damage_area_area_entered(area):
-	area.get_parent().damage_player(20)
+	area.get_parent().damage_player(10)

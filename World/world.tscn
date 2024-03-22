@@ -1,6 +1,6 @@
 [gd_scene load_steps=99 format=3 uid="uid://bjyu4s56bwndo"]
 
-[ext_resource type="PackedScene" uid="uid://2ksfekgtnoyh" path="res://Player/player.tscn" id="1_s1trh"]
+[ext_resource type="PackedScene" uid="uid://c0v1ln5jqvb4v" path="res://Player/player.tscn" id="1_s1trh"]
 [ext_resource type="Script" path="res://World/Cycle Controller.gd" id="1_xw5q7"]
 [ext_resource type="Texture2D" uid="uid://dmi3exk8i3i03" path="res://World/Texture/env_sky_001_noon.png" id="2_qnim8"]
 [ext_resource type="Shader" path="res://World/Outline.gdshader" id="3_a5miv"]
@@ -17,11 +17,11 @@
 [ext_resource type="Material" uid="uid://dbxkvsq1fl7h5" path="res://World/Texture/cave_dirt.tres" id="11_7e6iv"]
 [ext_resource type="Material" uid="uid://bb0bemjlrmqes" path="res://World/Texture/dirt.tres" id="11_aab2v"]
 [ext_resource type="Texture2D" uid="uid://c2omeako4s3qv" path="res://World/Texture/Ore Textures/ruby.png" id="11_wapq3"]
-[ext_resource type="PackedScene" uid="uid://c4mmpiciercnw" path="res://World/Ores/coal_ore.tscn" id="18_nsaoa"]
+[ext_resource type="PackedScene" path="res://World/Ores/coal_ore.tscn" id="18_nsaoa"]
 [ext_resource type="PackedScene" uid="uid://miolgxsvio36" path="res://World/tree.tscn" id="18_paqfv"]
-[ext_resource type="PackedScene" uid="uid://bhewtm0hlsx4j" path="res://World/Ores/amber_ore.tscn" id="18_vhcw0"]
-[ext_resource type="PackedScene" uid="uid://b2klbsxi8p536" path="res://World/Ores/jade_ore.tscn" id="19_888r4"]
-[ext_resource type="PackedScene" uid="uid://b6tidytsfbekf" path="res://World/Ores/diamond_ore.tscn" id="20_rrm3f"]
+[ext_resource type="PackedScene" path="res://World/Ores/amber_ore.tscn" id="18_vhcw0"]
+[ext_resource type="PackedScene" path="res://World/Ores/jade_ore.tscn" id="19_888r4"]
+[ext_resource type="PackedScene" path="res://World/Ores/diamond_ore.tscn" id="20_rrm3f"]
 [ext_resource type="PackedScene" uid="uid://cedin0ncojskp" path="res://Shop/market.tscn" id="21_pli4j"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eoxxx"]
@@ -1825,24 +1825,20 @@ shape = SubResource("ConvexPolygonShape3D_1s3g0")
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -77.5, -7.5, 83.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sand Ground3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("5_dune1")
 mesh = SubResource("BoxMesh_ci6gb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sand Ground3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_glwvy")
 
 [node name="Sand Ground4" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -29, -9.5, 81)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sand Ground4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("5_dune1")
 mesh = SubResource("BoxMesh_ci6gb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sand Ground4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_glwvy")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -1851,7 +1847,7 @@ visible = false
 navigation_mesh = SubResource("NavigationMesh_1xqtr")
 
 [node name="Player" parent="." instance=ExtResource("1_s1trh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 8.3131, 45.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.4854, 2.95012, 34.8481)
 
 [node name="Material Nodes" type="Node3D" parent="."]
 
@@ -1903,11 +1899,44 @@ transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 95, 9.5,
 [node name="Coal Ore15" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 94, 9.21368, 77.5)
 
+[node name="Coal Ore19" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 94, 13.9939, 93.5)
+
+[node name="Coal Ore21" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 92, 13.9939, 90.5)
+
+[node name="Coal Ore22" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 101, 14.4259, 91.5)
+
+[node name="Coal Ore23" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 100, 14.4259, 85.5)
+
+[node name="Coal Ore24" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 92, 13.0045, 85.5)
+
+[node name="Coal Ore25" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 86, 13.0045, 97.5)
+
+[node name="Coal Ore26" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 80, 13.0045, 101.5)
+
+[node name="Coal Ore27" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 76, 13.0045, 85.5)
+
+[node name="Coal Ore28" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 90, 13.8506, 91.5)
+
+[node name="Coal Ore29" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 81, 13.0045, 87.5)
+
 [node name="Coal Ore16" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
 transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 98.5, 9.21368, 74)
 
 [node name="Coal Ore7" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5, 2.7, 36.5)
+
+[node name="Coal Ore30" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.5, 2.7, 56.0783)
 
 [node name="Coal Ore8" parent="Material Nodes" instance=ExtResource("18_nsaoa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5, 2.7, 34)

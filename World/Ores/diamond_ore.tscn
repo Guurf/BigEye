@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6tidytsfbekf"]
+[gd_scene load_steps=16 format=3]
 
 [ext_resource type="Script" path="res://World/Ores/diamond_ore.gd" id="1_l2hte"]
 [ext_resource type="Material" uid="uid://dbcuskdwrtnhj" path="res://World/Texture/stone2.tres" id="2_8gso8"]

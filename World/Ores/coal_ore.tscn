@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4mmpiciercnw"]
+[gd_scene load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://Ore Node.gd" id="1_qo5om"]
 [ext_resource type="Material" uid="uid://dbxkvsq1fl7h5" path="res://World/Texture/cave_dirt.tres" id="2_503ff"]
 [ext_resource type="PackedScene" uid="uid://cs0gx5towyxp6" path="res://World/healthbar.tscn" id="2_xpxlp"]
 [ext_resource type="Material" uid="uid://bb0bemjlrmqes" path="res://World/Texture/dirt.tres" id="3_dwkxs"]
 [ext_resource type="AudioStream" uid="uid://cj8y4bmgh04k6" path="res://Audio/rock hit.wav" id="3_icw5n"]
-[ext_resource type="Material" path="res://World/Texture/coal.tres" id="3_l8sal"]
+[ext_resource type="Material" uid="uid://ot0ll30w48l" path="res://World/Texture/coal.tres" id="3_l8sal"]
 [ext_resource type="Texture2D" uid="uid://brijaps83tuw0" path="res://World/Texture/Ore Textures/coal.png" id="5_nlthx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2fai7"]

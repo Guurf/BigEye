@@ -23,9 +23,12 @@ var stam = max_stam
 var regen_stam = false
 var clip_size = 12
 var ammo = clip_size
+var gun_dmg = 1
 @onready var i_frames = $i_frames
 @onready var stamina_regen = $stamina_regen
 @onready var scroll_speed = $scroll_speed
+@onready var rod = $Rod
+@onready var gun = $Gun
 
 #bob variables
 const BOB_FREQ = 1.8
@@ -37,6 +40,7 @@ var base_fov = 75.0
 const FOV_CHANGE = 1.5
 
 @onready var player_ui = $"Player UI"
+@onready var hurt_sound = $"Hurt Sound"
 
 func _ready():
 	player_ui.healthbar.init_health(hp)
@@ -53,7 +57,6 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	if not is_on_floor() and was_on_floor:
 		coyote_time.start()
-		print("walked off")
 	elif is_on_floor():
 		was_on_floor = true
 		jumps = 1
@@ -79,7 +82,6 @@ func _physics_process(delta):
 	if scroll_speed.time_left <= 0.0 and (Input.is_action_just_released("scroll") or Input.is_action_just_pressed("scrollQ")):
 		scroll_speed.start()
 		current_weapon = -current_weapon
-		print(current_weapon)
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -116,6 +118,7 @@ func _process(delta):
 func damage_player(_damage):
 	if i_frames.is_stopped():
 		i_frames.start()
+		hurt_sound.play()
 		hp -= _damage
 		player_ui.healthbar.health = hp
 

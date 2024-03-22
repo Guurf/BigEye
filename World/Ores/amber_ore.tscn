@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhewtm0hlsx4j"]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://World/Ores/amber_ore.gd" id="1_y2eje"]
 [ext_resource type="Texture2D" uid="uid://d2qx84ckpbl22" path="res://World/Texture/Ore Textures/amber.png" id="3_50p0m"]

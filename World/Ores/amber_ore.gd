@@ -12,7 +12,7 @@ var pitch : float
 @onready var hit_sound = $"Hit Sound"
 
 func _ready():
-	max_hp = 20.0
+	max_hp = 15.0
 	hp = max_hp
 	pitch = randf_range(10, 13)
 	healthbar.init_health(hp)

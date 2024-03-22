@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cflkuj3onipej"]
+[gd_scene load_steps=16 format=3 uid="uid://cfxcf4c3licl0"]
 
 [ext_resource type="Script" path="res://World/Ores/obsidian_ore.gd" id="1_5axsn"]
 [ext_resource type="Material" uid="uid://dycmguhutcm4u" path="res://World/Texture/Darker Grey.tres" id="2_pgtk0"]

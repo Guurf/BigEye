@@ -4,6 +4,7 @@ extends Node3D
 @onready var ball_spawner = $"Ball Spawner"
 
 @onready var orbital_spawn_speed = $orbital_spawn_speed
+@onready var ball_spawn_speed = $ball_spawn_speed
 
 
 
@@ -18,6 +19,9 @@ var attacking = false
 var orbital_spawn_amount = 3.0
 var orbital_spawn = orbital_spawn_amount
 
+var ball_spawn_amount = 2.0
+var ball_spawn = ball_spawn_amount
+
 
 func _ready():
 	animation_player.play("idle")
@@ -29,18 +33,18 @@ func _process(delta):
 		randomize()
 		if upcoming_attacks.size() < phase_length-1:
 			for p in phase_length:
-				var next_attack = 0
+				var next_attack = randi_range(0, 1)
 				upcoming_attacks.append(next_attack)
 				p += 1
-				print(upcoming_attacks)
+				#print(upcoming_attacks)
 		else:
 			state = "attack"
 	
 	if state == "attack":
 		if upcoming_attacks.size() > 0:
 			if upcoming_attacks[0] == 0: _orbital_laser()
-			elif upcoming_attacks[0] == 1: _eye_laser()
-			elif upcoming_attacks[0] == 2: _laser_balls()
+			elif upcoming_attacks[0] == 1: _laser_balls()
+			elif upcoming_attacks[0] == 2: _eye_laser()
 		else:
 			state == "idle"
 	
@@ -53,7 +57,6 @@ func _process(delta):
 		pass
 
 func _orbital_laser():
-	print(orbital_spawn)
 	if orbital_spawn > 0 and orbital_spawn_speed.is_stopped():
 		orbital_spawner.gen_random_pos()
 		orbital_spawn -= 1
@@ -66,8 +69,12 @@ func _eye_laser():
 	_next_attack()
 
 func _laser_balls():
-	ball_spawner._spawn_balls(5)
-	_next_attack()
+	if ball_spawn > 0 and ball_spawn_speed.is_stopped():
+		ball_spawner._spawn_ball()
+		ball_spawn -= 1
+		ball_spawn_speed.start()
+	elif ball_spawn <= 0:
+		_next_attack()
 
 func _next_attack():
 	state = "pause"
@@ -79,6 +86,8 @@ func _next_attack():
 func _reset_attack_variables():
 	orbital_spawn = orbital_spawn_amount
 	orbital_spawn_speed.stop()
+	ball_spawn = ball_spawn_amount
+	ball_spawn_speed.stop()
 
 func _sleep():
 	animation_player.play_backwards("open")

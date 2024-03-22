@@ -1,21 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://cedin0ncojskp"]
+[gd_scene load_steps=4 format=3 uid="uid://cedin0ncojskp"]
 
 [ext_resource type="PackedScene" uid="uid://cncht1c0ebmjf" path="res://Shop/Market.gltf" id="1_serl1"]
+[ext_resource type="Script" path="res://Shop/market.gd" id="1_xit11"]
 [ext_resource type="PackedScene" uid="uid://cu7w1vw7h7s56" path="res://Shop/sign.tscn" id="2_cye4s"]
 
 [node name="Market" type="Node3D"]
+script = ExtResource("1_xit11")
 
 [node name="Market" parent="." instance=ExtResource("1_serl1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0)
 
 [node name="Sign" parent="." instance=ExtResource("2_cye4s")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3.3, 3.2, 0.5)
+weapon = "Gun"
+upgrade = "DMG+"
 
 [node name="Sign2" parent="." instance=ExtResource("2_cye4s")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.2, 3.2, 0.5)
+weapon = "Gun"
+upgrade = "AMO+"
 
 [node name="Sign3" parent="." instance=ExtResource("2_cye4s")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 3.2, 0.5)
+weapon = "Rod"
+upgrade = "DMG+"
 
 [node name="Sign4" parent="." instance=ExtResource("2_cye4s")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.1, 3.2, 0.5)
+weapon = "Rod"
+upgrade = "SPD+"

@@ -1,4 +1,20 @@
-[gd_scene format=3 uid="uid://dygyjhm78hxra"]
+[gd_scene load_steps=8 format=3 uid="uid://dygyjhm78hxra"]
+
+[ext_resource type="Script" path="res://Shop/sign_label.gd" id="1_niu4f"]
+[ext_resource type="Texture2D" uid="uid://dg1vxljqg0fiy" path="res://Rod/Cog Rake.png" id="1_q4k7p"]
+[ext_resource type="Texture2D" uid="uid://c2j16yot0bfbv" path="res://Gun/Cog Gun.png" id="2_4evcn"]
+[ext_resource type="FontFile" uid="uid://cby1tlwu60ewd" path="res://Shop/MatchupPro.ttf" id="2_gybwb"]
+[ext_resource type="Texture2D" uid="uid://bylpy1lybgmi3" path="res://Shop/materials.png" id="3_hp34c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j76yg"]
+resource_local_to_scene = true
+atlas = ExtResource("3_hp34c")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1es3l"]
+resource_local_to_scene = true
+atlas = ExtResource("3_hp34c")
+region = Rect2(0, 0, 48, 48)
 
 [node name="Sign Label" type="Control"]
 layout_mode = 3
@@ -7,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_niu4f")
 
 [node name="Upgrade Name" type="Label" parent="."]
 layout_mode = 1
@@ -15,12 +32,145 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -81.0
-offset_top = -23.0
-offset_right = 41.0
-offset_bottom = 49.0
+offset_left = -75.0
+offset_top = -11.0
+offset_right = 47.0
+offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.917647, 0.831373, 0.666667, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_gybwb")
+theme_override_font_sizes/font_size = 50
 text = "ATK+"
+uppercase = true
+
+[node name="Material1" type="Control" parent="Upgrade Name"]
+anchors_preset = 0
+offset_left = -565.0
+offset_top = -349.0
+offset_right = -525.0
+offset_bottom = -309.0
+
+[node name="Material Sprite" type="TextureRect" parent="Upgrade Name/Material1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 643.0
+offset_top = 279.0
+offset_right = 691.0
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_j76yg")
+stretch_mode = 4
+
+[node name="Upgrade Cost" type="Label" parent="Upgrade Name/Material1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 607.0
+offset_top = 297.0
+offset_right = 729.0
+offset_bottom = 369.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_gybwb")
+theme_override_font_sizes/font_size = 30
+text = "20
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Material2" type="Control" parent="Upgrade Name"]
+anchors_preset = 0
+offset_left = -565.0
+offset_top = -349.0
+offset_right = -525.0
+offset_bottom = -309.0
+
+[node name="Material Sprite2" type="TextureRect" parent="Upgrade Name/Material2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 642.0
+offset_top = 328.0
+offset_right = 690.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_1es3l")
+stretch_mode = 4
+
+[node name="Upgrade Cost2" type="Label" parent="Upgrade Name/Material2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 607.0
+offset_top = 346.0
+offset_right = 729.0
+offset_bottom = 418.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_gybwb")
+theme_override_font_sizes/font_size = 30
+text = "20
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Rod Sprite" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -58.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.27235
+texture = ExtResource("1_q4k7p")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Gun Sprite" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.8459
+offset_top = -56.0
+offset_right = 10.1541
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4evcn")
+expand_mode = 1
+stretch_mode = 4

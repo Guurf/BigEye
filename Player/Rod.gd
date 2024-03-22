@@ -9,10 +9,12 @@ extends Node3D
 @onready var drill_speed = $drill_speed
 @onready var rod_area = $"../Head/Camera3D/Rod Area"
 @onready var rod_area_attack = $"../Head/Camera3D/Rod Area Attack"
+@onready var smash_area = $"../Smash Area"
+
 @onready var drill_sound = $"../Drill Sound"
 @onready var node_priority = $"../Head/Camera3D/Node Priority"
 
-var rod_damage = 2
+var rod_damage = 1
 
 var target_node = null
 func _ready():
@@ -38,6 +40,7 @@ func update_animation_parameters():
 			if animation_tree["parameters/conditions/plummeting"] == true:
 				animation_tree["parameters/conditions/plummeting"] = false
 				animation_tree["parameters/conditions/smash"] = true
+				smash_area.smash()
 				player.stam -= 10
 				player.player_ui.staminabar._set_stamina(player.stam)
 				player.stamina_regen.start()
@@ -104,4 +107,10 @@ func _on_rod_area_area_entered(area):
 
 func _on_rod_area_attack_area_entered(area):
 	var target = area.get_parent()
-	target.hit("enemy", rod_damage)
+	target.hit("enemy", rod_damage*2)
+
+
+func _on_smash_area_area_entered(area):
+	var target = area.get_parent()
+	target.hit("material", rod_damage*4)
+	target.hit("enemy", rod_damage*4)

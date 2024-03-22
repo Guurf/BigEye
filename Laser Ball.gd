@@ -5,6 +5,7 @@ var accel = 10
 
 var hp
 var max_hp
+@onready var orb_owie = $"ORB OWIE"
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
@@ -39,6 +40,7 @@ func hit(_type, _damage):
 	if (_type == "enemy"):
 		if healthbar_sprite.visible == false: healthbar_sprite.visible = true
 		hp -= _damage
+		orb_owie.play()
 		mesh.scale = Vector3(0.7, 1, 0.7)
 		healthbar.health = hp
 
@@ -46,3 +48,7 @@ func destroy():
 	mesh.scale = lerp(mesh.scale, Vector3(0.2, 0.2, 0.2), 0.1)
 	if mesh.scale.x <= 0.3: 
 		queue_free()
+
+
+func _on_area_3d_area_entered(area):
+	area.get_parent().damage_player(10)

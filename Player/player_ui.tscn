@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://pwqp3c86n4bd"]
+[gd_scene load_steps=14 format=3 uid="uid://pwqp3c86n4bd"]
 
 [ext_resource type="Script" path="res://Player/player_ui.gd" id="1_wjnxu"]
 [ext_resource type="Script" path="res://Player/Staminabar.gd" id="3_5tdrg"]
+[ext_resource type="Texture2D" uid="uid://bylpy1lybgmi3" path="res://Shop/materials.png" id="4_14t4t"]
 [ext_resource type="Texture2D" uid="uid://ce46nfacqkfad" path="res://Player/crosshair.png" id="4_pqrvt"]
+[ext_resource type="FontFile" uid="uid://cby1tlwu60ewd" path="res://Shop/MatchupPro.ttf" id="5_1h46r"]
+[ext_resource type="Script" path="res://Player/Materials.gd" id="5_3lwbu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3024"]
 
@@ -175,6 +178,44 @@ scale = Vector2(0.4, 0.4)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_pqrvt")
+
+[node name="Materials" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -212.0
+offset_right = 416.0
+offset_bottom = -164.0
+grow_vertical = 0
+rotation = -0.0872665
+texture = ExtResource("4_14t4t")
+script = ExtResource("5_3lwbu")
+
+[node name="Coal" type="Label" parent="Materials"]
+layout_mode = 0
+offset_left = 4.76917
+offset_top = -8.61713
+offset_right = 44.7692
+offset_bottom = 45.3829
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_1h46r")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+
+[node name="Gold" type="Label" parent="Materials"]
+offset_left = 54.0185
+offset_top = -9.32745
+offset_right = 94.0185
+offset_bottom = 44.6725
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_1h46r")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="Healthbar/Timer" to="Healthbar" method="_on_timer_timeout" flags=18]
 [connection signal="timeout" from="Staminabar/Timer" to="Staminabar" method="_on_timer_timeout" flags=18]

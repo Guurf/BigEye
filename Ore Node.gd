@@ -12,7 +12,7 @@ var pitch
 @onready var hit_sound = $"Hit Sound"
 
 func _ready():
-	max_hp = 10.0
+	max_hp = 8.0
 	hp = max_hp
 	pitch = randi_range(10, 13)
 	healthbar.init_health(hp)

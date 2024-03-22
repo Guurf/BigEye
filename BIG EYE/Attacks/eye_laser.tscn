@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd46moborh2pi"]
+
+[ext_resource type="Script" path="res://Eye Laser.gd" id="1_ucc1f"]
+[ext_resource type="Material" uid="uid://biy4vb73mx48s" path="res://Laser.tres" id="2_3nm5o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70fku"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r3g4m"]
+material = SubResource("StandardMaterial3D_70fku")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 30.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eskxk"]
+height = 30.0
+radius = 0.1
+
+[node name="Eye Laser" type="Node3D"]
+script = ExtResource("1_ucc1f")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+collision_layer = 32
+collision_mask = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 6.11959e-07)
+material_override = ExtResource("2_3nm5o")
+mesh = SubResource("CylinderMesh_r3g4m")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 6.11959e-07)
+shape = SubResource("CylinderShape3D_eskxk")
+
+[node name="aim_length" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="shoot_length" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

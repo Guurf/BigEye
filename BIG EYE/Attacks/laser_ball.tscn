@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwwyohb5j2g23"]
+[gd_scene load_steps=11 format=3 uid="uid://bwwyohb5j2g23"]
 
 [ext_resource type="Script" path="res://Laser Ball.gd" id="1_51i0j"]
 [ext_resource type="PackedScene" uid="uid://cs0gx5towyxp6" path="res://World/healthbar.tscn" id="2_vfomt"]
+[ext_resource type="AudioStream" uid="uid://cgp4rb4d3rpnk" path="res://Audio/cerys orb.wav" id="3_o3i4x"]
+[ext_resource type="AudioStream" uid="uid://b617kt3oo4355" path="res://Audio/orb hurt.wav" id="4_o3o8x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gxad"]
 albedo_color = Color(0.909804, 0.117647, 0.117647, 1)
@@ -12,7 +14,9 @@ emission_energy_multiplier = 5.0
 [sub_resource type="SphereMesh" id="SphereMesh_lu1gk"]
 material = SubResource("StandardMaterial3D_5gxad")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_cwkxl"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kip6h"]
+radius = 0.3
+height = 1.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_334wg"]
 bg_color = Color(1, 0.25098, 0.25098, 1)
@@ -20,8 +24,11 @@ bg_color = Color(1, 0.25098, 0.25098, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_dte80"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_qrfo0"]
+
 [node name="Laser Ball" type="CharacterBody3D"]
 collision_layer = 16
+collision_mask = 3
 script = ExtResource("1_51i0j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -29,8 +36,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("SphereMesh_lu1gk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("SphereShape3D_cwkxl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720741, 0)
+shape = SubResource("CapsuleShape3D_kip6h")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
@@ -47,9 +54,22 @@ billboard = 1
 texture = SubResource("ViewportTexture_dte80")
 
 [node name="Area3D" type="Area3D" parent="."]
-collision_layer = 16
-collision_mask = 9
+collision_layer = 48
+collision_mask = 2
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("SphereShape3D_cwkxl")
+shape = SubResource("SphereShape3D_qrfo0")
+
+[node name="ORB SOUND" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_o3i4x")
+volume_db = -15.0
+max_db = -10.0
+autoplay = true
+max_distance = 15.0
+
+[node name="ORB OWIE" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_o3o8x")
+max_distance = 20.0
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

@@ -1,5 +1,5 @@
 extends Node3D
-var laser_ball = preload("res://BIG EYE/Attacks/laser_ball.tscn")
+var laser_ball_scene = preload("res://BIG EYE/Attacks/laser_ball.tscn")
 var x
 var y
 var z
@@ -12,6 +12,7 @@ func _spawn_ball():
 	elif side == 2:
 		x = 24.5
 		y = 3
-	
+	var laser_ball = laser_ball_scene.instantiate()
 	get_tree().get_root().add_child(laser_ball)
 	laser_ball.global_position = Vector3(x, y, z)
+	print("Ball spawned at ", str(laser_ball.global_position))

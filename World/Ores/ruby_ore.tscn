@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhbbibuf4whas"]
+[gd_scene load_steps=16 format=3 uid="uid://cdoi1bdjh08l4"]
 
 [ext_resource type="Script" path="res://World/Ores/ruby_ore.gd" id="1_kmrjy"]
 [ext_resource type="Material" uid="uid://dbxkvsq1fl7h5" path="res://World/Texture/cave_dirt.tres" id="2_053qt"]
