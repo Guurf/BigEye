@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bv2fjm8c2pylu"]
+
+[ext_resource type="Texture2D" uid="uid://ccviquk5tknpk" path="res://World/Texture/Ore Textures/stone texture.png" id="1_ow42j"]
+
+[resource]
+albedo_texture = ExtResource("1_ow42j")
+uv1_scale = Vector3(9, 14, 8)
+uv1_offset = Vector3(0.05, 0.05, 0)
+texture_filter = 0

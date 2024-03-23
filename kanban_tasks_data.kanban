@@ -11,20 +11,22 @@
 			"uuid": "18a87558-a404-47de-965c-e95ae8cbcb81",
 			"title": "Todo",
 			"tasks": [
-				"c1fb9033-410e-48eb-a8f6-ee8795ec6b26",
 				"b8ab673c-d570-403b-aa12-0f54ca61a9b0",
-				"0ea57117-5c8b-4b48-9082-5d9254071c85"
+				"f1909e7f-8999-440b-9726-67551f461502",
+				"d4d34569-2c0d-4e75-b9fc-8f1f0d7d4dd4",
+				"0ea57117-5c8b-4b48-9082-5d9254071c85",
+				"0257b6e5-1c50-42cc-b9e7-4efe911b958e",
+				"ba3533c7-f8cb-47ac-852f-b886e23242b2",
+				"993a2b9e-9945-4467-a984-6428093699c2"
 			]
 		},
 		{
 			"uuid": "da9d95ef-da9d-4172-9c7b-7f4f70f1a98b",
 			"title": "Doing",
 			"tasks": [
-				"69b1d05e-af0f-49a4-a0c9-14d1aa8ab8b8",
-				"a5422b51-515a-4f2a-b823-54167f9f648b",
 				"ab317865-911f-4134-81e5-b68619afa0ad",
 				"ef47e377-7400-48e0-99c1-a752be687c48",
-				"6f3b3c4a-0bd4-4c78-9edf-ea5d4fcef672"
+				"155c79d9-24aa-467d-9f07-8c62674cc60b"
 			]
 		},
 		{
@@ -38,7 +40,9 @@
 				"2afe0cd9-9c2b-43ea-914e-3aacf493509b",
 				"86962f14-952e-4c3f-b2c9-e208fb7a40f2",
 				"14fd33aa-7664-46dc-828c-f1a86af6822e",
-				"bb15fdad-a87a-4146-b77f-19eabe9871ce"
+				"bb15fdad-a87a-4146-b77f-19eabe9871ce",
+				"6f3b3c4a-0bd4-4c78-9edf-ea5d4fcef672",
+				"f709269f-37c0-47f7-9330-6f6ce062842b"
 			]
 		}
 	],
@@ -79,29 +83,8 @@
 			"steps": []
 		},
 		{
-			"uuid": "c1fb9033-410e-48eb-a8f6-ee8795ec6b26",
-			"title": "Fixable turrets",
-			"description": "",
-			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
-			"steps": []
-		},
-		{
 			"uuid": "b8ab673c-d570-403b-aa12-0f54ca61a9b0",
 			"title": "CHEWING GUM",
-			"description": "",
-			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
-			"steps": []
-		},
-		{
-			"uuid": "69b1d05e-af0f-49a4-a0c9-14d1aa8ab8b8",
-			"title": "Environment",
-			"description": "",
-			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
-			"steps": []
-		},
-		{
-			"uuid": "a5422b51-515a-4f2a-b823-54167f9f648b",
-			"title": "Parkour",
 			"description": "",
 			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
 			"steps": []
@@ -151,6 +134,55 @@
 		{
 			"uuid": "6f3b3c4a-0bd4-4c78-9edf-ea5d4fcef672",
 			"title": "Day/Night Cycle",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "f1909e7f-8999-440b-9726-67551f461502",
+			"title": "Tutorial",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "d4d34569-2c0d-4e75-b9fc-8f1f0d7d4dd4",
+			"title": "Ending",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "0257b6e5-1c50-42cc-b9e7-4efe911b958e",
+			"title": "Upgrade Prices",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "f709269f-37c0-47f7-9330-6f6ce062842b",
+			"title": "Grass Area",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "ba3533c7-f8cb-47ac-852f-b886e23242b2",
+			"title": "Smash Rock",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "155c79d9-24aa-467d-9f07-8c62674cc60b",
+			"title": "Sand Area",
+			"description": "",
+			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
+			"steps": []
+		},
+		{
+			"uuid": "993a2b9e-9945-4467-a984-6428093699c2",
+			"title": "Boss Arena",
 			"description": "",
 			"category": "15d3a956-c7d2-476a-b51b-ab6dd52f4593",
 			"steps": []

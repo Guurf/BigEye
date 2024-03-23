@@ -4,7 +4,7 @@ var speed = 3
 var accel = 10
 
 var hp
-var max_hp
+var max_hp = 3.0
 @onready var orb_owie = $"ORB OWIE"
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
@@ -14,7 +14,6 @@ var max_hp
 @onready var mesh = $MeshInstance3D
 
 func _ready():
-	max_hp = 3
 	hp = max_hp
 	healthbar.init_health(hp)
 	healthbar_sprite.visible = false

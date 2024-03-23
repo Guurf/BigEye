@@ -15,8 +15,8 @@ emission_energy_multiplier = 5.0
 material = SubResource("StandardMaterial3D_5gxad")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kip6h"]
-radius = 0.3
-height = 1.5
+radius = 0.4
+height = 1.2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_334wg"]
 bg_color = Color(1, 0.25098, 0.25098, 1)
@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("SphereMesh_lu1gk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720741, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.903165, 0)
 shape = SubResource("CapsuleShape3D_kip6h")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

@@ -26,7 +26,7 @@ func _buy():
 		print(Inventory.inventory)
 		current += 1
 		if upg == "GUN DMG": #sign 1
-			player.gun_dmg += 1
+			player.gun_dmg += 1.0
 		
 		elif upg == "GUN AMO": #sign 2
 			player.clip_size += 2

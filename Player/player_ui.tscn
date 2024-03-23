@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://pwqp3c86n4bd"]
+[gd_scene load_steps=19 format=3 uid="uid://pwqp3c86n4bd"]
 
 [ext_resource type="Script" path="res://Player/player_ui.gd" id="1_wjnxu"]
 [ext_resource type="Script" path="res://Player/Staminabar.gd" id="3_5tdrg"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ce46nfacqkfad" path="res://Player/crosshair.png" id="4_pqrvt"]
 [ext_resource type="FontFile" uid="uid://cby1tlwu60ewd" path="res://Shop/MatchupPro.ttf" id="5_1h46r"]
 [ext_resource type="Script" path="res://Player/Materials.gd" id="5_3lwbu"]
+[ext_resource type="Script" path="res://Player/Mat Label.gd" id="7_orq1x"]
+[ext_resource type="Texture2D" uid="uid://dyvw54843hgp6" path="res://World/Texture/day_night.png" id="8_22l1d"]
+[ext_resource type="Texture2D" uid="uid://dtr22thl2d1sm" path="res://World/Texture/pointer.png" id="9_5d62n"]
+[ext_resource type="Script" path="res://Player/Bossbar.gd" id="10_krkhv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3024"]
 
@@ -80,6 +84,13 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkkvf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwqd4"]
+bg_color = Color(0.560784, 0.117647, 0.184314, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 
 [node name="Player UI" type="CanvasLayer"]
 script = ExtResource("1_wjnxu")
@@ -179,6 +190,52 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_pqrvt")
 
+[node name="Ammo" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -55.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.784314, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_1h46r")
+theme_override_font_sizes/font_size = 64
+text = "12
+"
+horizontal_alignment = 1
+script = ExtResource("7_orq1x")
+
+[node name="Sens Popup" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 49.0
+offset_right = 30.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_1h46r")
+theme_override_font_sizes/font_size = 24
+text = "sens: 2
+"
+horizontal_alignment = 1
+script = ExtResource("7_orq1x")
+
 [node name="Materials" type="TextureRect" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
@@ -193,29 +250,184 @@ texture = ExtResource("4_14t4t")
 script = ExtResource("5_3lwbu")
 
 [node name="Coal" type="Label" parent="Materials"]
-layout_mode = 0
-offset_left = 4.76917
-offset_top = -8.61713
-offset_right = 44.7692
-offset_bottom = 45.3829
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.086
+anchor_top = 0.383
+anchor_right = 0.086
+anchor_bottom = 0.383
+offset_left = -19.9988
+offset_top = -27.0011
+offset_right = 20.0012
+offset_bottom = 26.9989
+pivot_offset = Vector2(20, 20)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("5_1h46r")
 theme_override_font_sizes/font_size = 32
 text = "1"
 horizontal_alignment = 1
+script = ExtResource("7_orq1x")
 
-[node name="Gold" type="Label" parent="Materials"]
-offset_left = 54.0185
-offset_top = -9.32745
-offset_right = 94.0185
-offset_bottom = 44.6725
+[node name="Amber" type="Label" parent="Materials"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.257
+anchor_top = 0.5
+anchor_right = 0.257
+anchor_bottom = 0.5
+offset_left = -19.9975
+offset_top = -33.3274
+offset_right = 20.0025
+offset_bottom = 20.6725
+pivot_offset = Vector2(20, 20)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("5_1h46r")
 theme_override_font_sizes/font_size = 32
 text = "1"
 horizontal_alignment = 1
+script = ExtResource("7_orq1x")
+
+[node name="Jade" type="Label" parent="Materials"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42
+anchor_top = 0.5
+anchor_right = 0.42
+anchor_bottom = 0.5
+offset_left = -19.8589
+offset_top = -32.2197
+offset_right = 20.1411
+offset_bottom = 21.7802
+pivot_offset = Vector2(20, 20)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_1h46r")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+script = ExtResource("7_orq1x")
+
+[node name="Diamond" type="Label" parent="Materials"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.588
+anchor_top = 0.5
+anchor_right = 0.588
+anchor_bottom = 0.5
+offset_left = -20.0769
+offset_top = -32.0211
+offset_right = 19.9231
+offset_bottom = 21.9789
+pivot_offset = Vector2(20, 20)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_1h46r")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+script = ExtResource("7_orq1x")
+
+[node name="Ruby" type="Label" parent="Materials"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.755
+anchor_top = 0.5
+anchor_right = 0.755
+anchor_bottom = 0.5
+offset_left = -20.0069
+offset_top = -31.8223
+offset_right = 19.9931
+offset_bottom = 22.1776
+pivot_offset = Vector2(20, 20)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_1h46r")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+script = ExtResource("7_orq1x")
+
+[node name="Obsidian" type="Label" parent="Materials"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.919
+anchor_top = 0.5
+anchor_right = 0.919
+anchor_bottom = 0.5
+offset_left = -20.0692
+offset_top = -31.7108
+offset_right = 19.9308
+offset_bottom = 22.2891
+pivot_offset = Vector2(20, 20)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_1h46r")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+script = ExtResource("7_orq1x")
+
+[node name="Clock" type="TextureRect" parent="."]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 158.0
+offset_bottom = 158.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("8_22l1d")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = 132.0
+offset_top = 74.0
+offset_right = 175.0
+offset_bottom = 114.0
+texture = ExtResource("9_5d62n")
+
+[node name="Bossbar" type="ProgressBar" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -422.0
+offset_top = 40.0
+offset_right = 422.0
+offset_bottom = 87.0
+grow_horizontal = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_e3024")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mwqd4")
+max_value = 1000.0
+value = 1000.0
+show_percentage = false
+script = ExtResource("10_krkhv")
+
+[node name="Damagebar" type="ProgressBar" parent="Bossbar"]
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_2aitv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e1bhu")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="Bossbar"]
+wait_time = 0.3
+one_shot = true
+
+[node name="pop_up" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="Healthbar/Timer" to="Healthbar" method="_on_timer_timeout" flags=18]
 [connection signal="timeout" from="Staminabar/Timer" to="Staminabar" method="_on_timer_timeout" flags=18]
+[connection signal="timeout" from="Bossbar/Timer" to="Bossbar" method="_on_timer_timeout" flags=18]
+[connection signal="timeout" from="pop_up" to="." method="_on_pop_up_timeout"]

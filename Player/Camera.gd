@@ -5,12 +5,14 @@ extends Camera3D
 @onready var hand = $Hand
 @onready var shoot_sound = $"../../Shoot Sound"
 @onready var empty_sound = $"../../Empty Sound"
+@onready var player_ui = $"../../Player UI"
 
 var trail = preload("res://Player/bullet_trail.tscn").instantiate()
 var ray_range = 2000
 
 func get_camera_collision():
 	player.ammo -= 1
+	player_ui.ammo.text = str(player.ammo)
 	var shoot_pitch = randf_range(1.1, 1.2)
 	shoot_sound.pitch_scale = shoot_pitch
 	shoot_sound.play()

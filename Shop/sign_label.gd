@@ -20,9 +20,10 @@ func _init_sign():
 	upgrade_name.text = upgrade
 
 func _init_upgrade(_material1, _material1_amount, _material2, _material2_amount):
+	if _material1 == -1: material_1_node.visible = false
 	material_sprite.texture.region = Rect2(48*_material1, 0, 48, 48)
 	upgrade_cost.text = str(_material1_amount)
-	if _material2 != 0:
+	if _material2 != -1:
 		material_2_node.visible = true
 		material_sprite_2.texture.region = Rect2(48*_material2, 0, 48, 48)
 		upgrade_cost_2.text = str(_material2_amount)

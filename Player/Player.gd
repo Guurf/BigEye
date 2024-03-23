@@ -10,12 +10,14 @@ var sensitivity = 0.002
 var gravity = 16
 var was_on_floor = true
 var jumps = 1
+var quitting = 1
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var coyote_time = $coyote_time
 
 #combat variables
 var current_weapon = 1
+var win = false
 var max_hp = 100
 var hp = max_hp
 var max_stam = 20
@@ -23,7 +25,7 @@ var stam = max_stam
 var regen_stam = false
 var clip_size = 12
 var ammo = clip_size
-var gun_dmg = 1
+var gun_dmg = 1.0
 @onready var i_frames = $i_frames
 @onready var stamina_regen = $stamina_regen
 @onready var scroll_speed = $scroll_speed
@@ -82,6 +84,8 @@ func _physics_process(delta):
 	if scroll_speed.time_left <= 0.0 and (Input.is_action_just_released("scroll") or Input.is_action_just_pressed("scrollQ")):
 		scroll_speed.start()
 		current_weapon = -current_weapon
+		if current_weapon == 1: player_ui.ammo.visible = true
+		elif player_ui.ammo.visible == true: player_ui.ammo.visible = false
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -107,9 +111,26 @@ func _physics_process(delta):
 	var target_fov = base_fov + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
+	# Change sens
+	if Input.is_action_just_pressed("sens_up"): 
+		sensitivity += 0.0005
+		player_ui.changed_sens(sensitivity)
+	if Input.is_action_just_pressed("sens_down"): 
+		sensitivity -= 0.0005
+		player_ui.changed_sens(sensitivity)
+	
+	#Quit Game
+	if Input.is_action_pressed("quit"): quitting -= 1 * delta
+	if Input.is_action_just_released("quit"): quitting = 1
+	if quitting <= 0: get_tree().quit()
+	
+	
 	if not is_on_floor():
 		was_on_floor = false
 		velocity.y -= gravity * delta
+	
+	if hp <= 0.0:
+		die()
 
 
 func _process(delta):
@@ -127,3 +148,15 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+func die():
+	velocity.y = 0
+	velocity.x = 0
+	global_position = Vector3(29.5, 1, 40)
+	hp = max_hp
+	player_ui.healthbar.health = hp
+
+#LAVA
+func _on_player_detector_area_entered(area):
+	damage_player(5)
+	velocity.y = 10

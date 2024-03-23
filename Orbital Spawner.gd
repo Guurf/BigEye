@@ -4,6 +4,9 @@ extends Node3D
 var laser_scene = preload("res://BIG EYE/Attacks/orbital_laser.tscn")
 var player
 
+var radius = 4.0
+var speed = 2.0
+
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
 
@@ -19,10 +22,10 @@ func gen_random_pos():
 	var z = randi_range(origin.z, origin.z+spawn_area.z)
 	var laser = laser_scene.instantiate()
 	get_tree().get_root().add_child(laser)
-	laser.speed = 2.0
+	laser.speed = speed
 	laser.speed_length = laser.speed
 	laser.duration = 0.5
-	laser.radius = 4.0
+	laser.radius = radius
 	laser.global_position.x = x
 	laser.global_position.z = z
 	laser.global_position.y = player.global_position.y-2.5

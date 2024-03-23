@@ -5,6 +5,7 @@ extends Node3D
 @onready var animation_tree = $pistol/AnimationTree
 @onready var player = $".."
 @onready var cooldown = $"gun cooldown"
+@onready var player_ui = $"../Player UI"
 
 func _ready():
 	animation_tree.active = true
@@ -31,8 +32,7 @@ func update_animation_parameters():
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/is_walking"] = false
 		animation_tree["parameters/conditions/is_running"] = false
-	
-	if (Input.is_action_pressed("shoot") and cooldown.time_left <= 0.0):
+	if (Input.is_action_pressed("shoot") and cooldown.time_left <= 0.001):
 		animation_tree["parameters/conditions/shoot"] = true
 		cooldown.start()
 	else:
@@ -41,5 +41,6 @@ func update_animation_parameters():
 	if (Input.is_action_pressed("reload")):
 		animation_tree["parameters/conditions/reload"] = true
 		player.ammo = player.clip_size
+		player_ui.ammo.text = str(player.ammo)
 	else:
 		animation_tree["parameters/conditions/reload"] = false
