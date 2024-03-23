@@ -12,6 +12,7 @@ var pitch
 @onready var hit_sound = $"Hit Sound"
 
 func _ready():
+	$SubViewport.set_update_mode(SubViewport.UPDATE_WHEN_PARENT_VISIBLE)
 	max_hp = 30.0
 	hp = max_hp
 	pitch = randi_range(10, 13)

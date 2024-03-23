@@ -2,6 +2,7 @@ extends Node3D
 @onready var sign_label = $"SubViewport/Sign Label"
 @export var weapon = ""
 @export var upgrade = ""
+@onready var sub_viewport = $SubViewport
 
 var player
 var upgrade_tree_mats1 = [0, 0, 0]
@@ -11,6 +12,7 @@ var upgrade_tree_cost2 = [0, 0, 0]
 var upg = "NONE"
 var current = 0
 func _ready():
+	sub_viewport.set_update_mode(SubViewport.UPDATE_WHEN_PARENT_VISIBLE)
 	player = get_tree().get_nodes_in_group("Player")[0]
 	sign_label.weapon = weapon
 	sign_label.upgrade = upgrade

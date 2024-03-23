@@ -6,6 +6,7 @@ var accel = 10
 var hp
 var max_hp = 3.0
 @onready var orb_owie = $"ORB OWIE"
+@onready var sub_viewport = $SubViewport
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
@@ -14,6 +15,7 @@ var max_hp = 3.0
 @onready var mesh = $MeshInstance3D
 
 func _ready():
+	sub_viewport.set_update_mode(SubViewport.UPDATE_WHEN_PARENT_VISIBLE)
 	hp = max_hp
 	healthbar.init_health(hp)
 	healthbar_sprite.visible = false

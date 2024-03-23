@@ -12,6 +12,7 @@ var pitch : float
 @onready var hit_sound = $"Hit Sound"
 
 func _ready():
+	$SubViewport.set_update_mode(SubViewport.UPDATE_WHEN_PARENT_VISIBLE)
 	max_hp = 15.0
 	hp = max_hp
 	pitch = randf_range(10, 13)
